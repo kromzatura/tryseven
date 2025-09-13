@@ -7,12 +7,16 @@ import {
 export const resolve: PresentationPluginOptions["resolve"] = {
   locations: {
     // Add more locations for other post types
+    contact: defineLocations({
+      select: { title: "title" },
+      resolve: (doc) => ({
+        locations: [{ title: doc?.title || "Contact", href: "/contact" }],
+      }),
+    }),
     categories: defineLocations({
       select: { title: "title" },
       resolve: (doc) => ({
-        locations: [
-          { title: doc?.title || "Categories", href: "/categories" },
-        ],
+        locations: [{ title: doc?.title || "Categories", href: "/categories" }],
       }),
     }),
     post: defineLocations({
@@ -47,6 +51,10 @@ export const resolve: PresentationPluginOptions["resolve"] = {
     {
       route: "/categories",
       filter: `_type == 'categories'`,
+    },
+    {
+      route: "/contact",
+      filter: `_type == 'contact'`,
     },
   ]),
 };
