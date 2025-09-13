@@ -9,6 +9,7 @@ import testimonial from "./schemas/documents/testimonial";
 import navigation from "./schemas/documents/navigation";
 import settings from "./schemas/documents/settings";
 import contact from "./schemas/documents/contact";
+import categories from "./schemas/documents/categories";
 import changelog from "./schemas/documents/changelog";
 import team from "./schemas/documents/team";
 import banner from "./schemas/documents/banner";
@@ -128,6 +129,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     settings,
     contact,
+  categories,
     changelog,
     team,
     banner,

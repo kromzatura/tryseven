@@ -6,7 +6,10 @@ import { generatePageMetadata } from "@/sanity/lib/metadata";
 
 export function generateMetadata() {
   return generatePageMetadata({
-    page: { title: "Categories", seo: { title: "Categories", metaDescription: "Browse all categories" } },
+    page: {
+      title: "Categories",
+      seo: { title: "Categories", metaDescription: "Browse all categories" },
+    },
     slug: "categories",
     type: "category",
   });

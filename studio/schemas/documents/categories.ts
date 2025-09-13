@@ -22,7 +22,8 @@ const categories = defineType({
       title: "Description",
       type: "text",
       group: "content",
-      validation: (Rule) => Rule.max(160).warning("Keep it concise (≤160 chars)"),
+      validation: (Rule) =>
+        Rule.max(160).warning("Keep it concise (≤160 chars)"),
     }),
     defineField({
       name: "seo",
