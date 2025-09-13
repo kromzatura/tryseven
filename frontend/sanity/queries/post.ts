@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 
 import { bodyQuery } from "./shared/body";
+import { categoryQuery } from "./shared/category";
 import { imageQuery } from "./shared/image";
 import { metaQuery } from "./shared/meta";
 
@@ -42,8 +43,7 @@ export const POSTS_QUERY = groq`*[_type == "post" && defined(slug)] | order(_cre
       ${imageQuery}
     },
     categories[]->{
-      _id,
-      title,
+      ${categoryQuery}
     },
 }`;
 

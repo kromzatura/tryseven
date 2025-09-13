@@ -10,7 +10,7 @@
     "prelint": "pnpm typecheck",
     "lint": "eslint .",
     "email": "email dev",
-    "typegen": "npx sanity schema extract && npx sanity typegen generate",
+  "typegen": "cp -f ../studio/schema.json ./schema.json && npx sanity typegen generate",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:run": "vitest run"

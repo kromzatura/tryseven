@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
 
+import { categoryQuery } from "../shared/category";
 import { imageQuery } from "../shared/image";
 import { linkQuery } from "../shared/link";
 
@@ -22,9 +23,7 @@ export const gallery1Query = groq`
         ${linkQuery},
       },
       categories[]->{
-        _id,
-        title,
-        color
+        ${categoryQuery}
       },
     },
   }

@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
 
+import { categoryQuery } from "../../shared/category";
 import { imageQuery } from "../../shared/image";
 
 // @sanity-typegen-ignore
@@ -18,8 +19,7 @@ export const blog13Query = groq`
         ${imageQuery}
       },
       categories[]->{
-        _id,
-        title,
+        ${categoryQuery}
       },
     },
   }

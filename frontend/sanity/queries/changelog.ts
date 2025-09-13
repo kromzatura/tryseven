@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 
 import { bodyQuery } from "./shared/body";
+import { categoryQuery } from "./shared/category";
 import { imageQuery } from "./shared/image";
 
 export const CHANGELOGS_QUERY = groq`*[_type == "changelog" && defined(slug)] | order(date desc){
@@ -23,8 +24,6 @@ export const CHANGELOGS_QUERY = groq`*[_type == "changelog" && defined(slug)] | 
       }
     },
     categories[]->{
-      _id,
-      title,
-      color
+      ${categoryQuery}
     },
 }`;
