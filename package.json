@@ -16,11 +16,11 @@
   },
   "homepage": "https://largseeds.nl/",
   "devDependencies": {
-    "p-limit": "^5.0.0",
-    "@types/node": "^24.0.10",
     "@sanity/client": "^7.9.0",
-    "husky": "^9.1.6",
-    "lint-staged": "^15.2.8",
+    "@types/node": "^24.0.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "p-limit": "^5.0.0",
     "tsx": "^4.19.2"
   },
   "lint-staged": {
