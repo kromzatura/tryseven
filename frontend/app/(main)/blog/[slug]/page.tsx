@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import PortableTextRenderer from "@/components/portable-text-renderer";
 import PostDate from "@/components/post-date";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import Breadcrumbs from "@/components/ui/breadcrumbs";
 import { Separator } from "@/components/ui/separator";
 import {
   fetchSanityPostBySlug,
@@ -14,10 +13,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 import { POST_QUERYResult } from "@/sanity.types";
 
-type BreadcrumbLink = {
-  label: string;
-  href: string;
-};
 
 type Heading = {
   text: string;
@@ -102,26 +97,11 @@ export default async function PostPage(props: {
     notFound();
   }
 
-  const links: BreadcrumbLink[] = post
-    ? [
-        {
-          label: "Blog",
-          href: "/blog",
-        },
-        {
-          label: post.title as string,
-          href: "#",
-        },
-      ]
-    : [];
-
   const headings = extractHeadings(post.body);
 
   return (
     <section className="container py-16 xl:py-20">
       <article>
-        <Breadcrumbs links={links} />
-
         {post.title && (
           <h1 className="mt-7 mb-6 max-w-3xl text-3xl font-semibold md:text-5xl">
             {post.title}
