@@ -1,6 +1,9 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { BANNER_QUERY } from "@/sanity/queries/banner";
-import { CATEGORY_QUERY } from "@/sanity/queries/category";
+import {
+  CATEGORY_QUERY,
+  CATEGORIES_SLUGS_QUERY,
+} from "@/sanity/queries/category";
 import { CHANGELOGS_QUERY } from "@/sanity/queries/changelog";
 import { CONTACT_QUERY } from "@/sanity/queries/contact";
 import { NAVIGATION_QUERY } from "@/sanity/queries/navigation";
@@ -16,6 +19,7 @@ import { TEAM_QUERY } from "@/sanity/queries/team";
 import {
   PAGE_QUERYResult,
   PAGES_SLUGS_QUERYResult,
+  // Type for categories slugs will be inferred from query string mapping in sanity.types.ts if present
   POST_QUERYResult,
   POSTS_QUERYResult,
   POSTS_SLUGS_QUERYResult,
@@ -27,6 +31,10 @@ import {
   TEAM_QUERYResult,
   Category,
 } from "@/sanity.types";
+
+export type CATEGORIES_SLUGS_QUERYResult = Array<{
+  slug?: { current?: string | null } | null;
+}>;
 
 export const fetchSanityNavigation =
   async (): Promise<NAVIGATION_QUERYResult> => {
@@ -130,6 +138,17 @@ export const fetchSanityPostsStaticParams =
     });
 
     return data;
+  };
+
+export const fetchSanityCategoriesStaticParams =
+  async (): Promise<CATEGORIES_SLUGS_QUERYResult> => {
+    const { data } = await sanityFetch({
+      query: CATEGORIES_SLUGS_QUERY,
+      perspective: "published",
+      stega: false,
+    });
+
+    return data as unknown as CATEGORIES_SLUGS_QUERYResult;
   };
 
 export const fetchSanitySettings = async (): Promise<SETTINGS_QUERYResult> => {

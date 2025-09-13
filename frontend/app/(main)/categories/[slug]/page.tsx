@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation";
 
-import { fetchSanityCategoryBySlug } from "@/sanity/lib/fetch";
+import {
+  fetchSanityCategoryBySlug,
+  fetchSanityCategoriesStaticParams,
+} from "@/sanity/lib/fetch";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 import { Category } from "@/sanity.types";
 
@@ -25,6 +28,12 @@ export async function generateMetadata(props: {
 }
 
 type CategoryWithOptionalDescription = Category & { description?: string };
+
+export async function generateStaticParams() {
+  const categories = await fetchSanityCategoriesStaticParams();
+
+  return categories.map((cat) => ({ slug: cat.slug?.current }));
+}
 
 export default async function CategoryPage(props: {
   params: Promise<{ slug: string }>;

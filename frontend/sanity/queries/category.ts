@@ -15,3 +15,5 @@ export const CATEGORY_QUERY = groq`*[_type == "category" && slug.current == $slu
     metaDescription
   }
 }`;
+
+export const CATEGORIES_SLUGS_QUERY = groq`*[_type == "category" && defined(slug)]{slug}`;
