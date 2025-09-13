@@ -9,6 +9,7 @@
     "start": "next start",
     "prelint": "pnpm typecheck",
     "lint": "eslint .",
+    "lint:ci": "eslint . --max-warnings=0",
     "email": "email dev",
     "typegen": "cp -f ../studio/schema.json ./schema.json && npx sanity typegen generate",
     "typecheck": "tsc --noEmit",

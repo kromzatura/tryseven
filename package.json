@@ -8,10 +8,13 @@
     "dev:studio": "pnpm run dev --workspace=studio",
     "typegen": "cd studio && pnpm typegen",
     "typecheck": "cd frontend && pnpm typecheck",
+    "typecheck:all": "pnpm -r run typecheck",
+    "prelint": "pnpm run typecheck:all",
     "export": "cd studio && sanity dataset export production sample-data.tar.gz",
     "prepare": "husky",
     "test": "cd frontend && pnpm test:coverage",
     "lint": "cd frontend && pnpm lint",
+    "prelint:ci": "pnpm run typecheck:all",
     "lint:ci": "cd frontend && pnpm lint:ci"
   },
   "homepage": "https://largseeds.nl/",
