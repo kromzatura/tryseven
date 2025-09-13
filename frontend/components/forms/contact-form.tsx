@@ -48,7 +48,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           const fieldValue = currentValues[fieldKey];
           try {
             contactFormSchema.shape[fieldKey].parse(fieldValue);
-          } catch (e) {
+          } catch (_) {
             form.setError(fieldKey, {
               type: "server",
               message,
