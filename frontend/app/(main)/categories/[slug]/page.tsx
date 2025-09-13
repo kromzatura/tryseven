@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   fetchSanityCategoryBySlug,
   fetchSanityCategoriesStaticParams,
@@ -27,7 +29,17 @@ export async function generateMetadata(props: {
   });
 }
 
-type CategoryWithOptionalDescription = Category & { description?: string };
+type CategoryPostListItem = {
+  _id: string;
+  title?: string | null;
+  slug?: { current?: string | null } | null;
+  excerpt?: string | null;
+};
+
+type CategoryWithOptionalDescription = Category & {
+  description?: string;
+  posts?: CategoryPostListItem[];
+};
 
 export async function generateStaticParams() {
   const categories = await fetchSanityCategoriesStaticParams();
@@ -54,6 +66,29 @@ export default async function CategoryPage(props: {
         <p className="mt-4 max-w-2xl text-muted-foreground">
           {category.description}
         </p>
+      )}
+      {Array.isArray(category.posts) && category.posts.length > 0 && (
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {category.posts.map((post) => (
+            <Card key={post._id}>
+              <CardHeader>
+                <CardTitle>
+                  <Link
+                    href={`/blog/${post.slug?.current ?? ""}`}
+                    className="hover:underline"
+                  >
+                    {post.title}
+                  </Link>
+                </CardTitle>
+              </CardHeader>
+              {post.excerpt && (
+                <CardContent>
+                  <p className="text-muted-foreground">{post.excerpt}</p>
+                </CardContent>
+              )}
+            </Card>
+          ))}
+        </div>
       )}
     </section>
   );

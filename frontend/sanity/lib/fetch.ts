@@ -3,6 +3,7 @@ import { BANNER_QUERY } from "@/sanity/queries/banner";
 import {
   CATEGORY_QUERY,
   CATEGORIES_SLUGS_QUERY,
+  CATEGORIES_QUERY,
 } from "@/sanity/queries/category";
 import { CHANGELOGS_QUERY } from "@/sanity/queries/changelog";
 import { CONTACT_QUERY } from "@/sanity/queries/contact";
@@ -165,6 +166,21 @@ export const fetchSanityContact = async (): Promise<CONTACT_QUERYResult> => {
   });
 
   return data;
+};
+
+export const fetchSanityCategories = async (): Promise<
+  Array<{ _id: string; title: string; slug?: { current?: string | null } | null; description?: string | null; color?: string | null }>
+> => {
+  const { data } = await sanityFetch({
+    query: CATEGORIES_QUERY,
+  });
+  return data as Array<{
+    _id: string;
+    title: string;
+    slug?: { current?: string | null } | null;
+    description?: string | null;
+    color?: string | null;
+  }>;
 };
 
 export const fetchSanityCategoryBySlug = async ({
