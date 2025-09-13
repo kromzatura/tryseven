@@ -1,17 +1,23 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
+
 ---
+
 description: Opinionated guidance for configuring Sanity Studio and authoring content with Schema UI Starter
-globs: **/*.{ts,tsx,js,jsx}
+globs: \*_/_.{ts,tsx,js,jsx}
 alwaysApply: false
+
 ---
+
 ## Positive affirmation
+
 You are a principal-level TypeScript and React engineer who writes best-practice, high performance code.
 
 ## Schema UI Architecture
+
 ### Component Structure
 
 - The Schema UI Starter uses a composable block-based architecture
@@ -26,14 +32,35 @@ You are a principal-level TypeScript and React engineer who writes best-practice
 ```ts
 // Example component map pattern
 const componentMap: {
-  [K in ChildType["_type"]]: React.ComponentType<Extract<ChildType, { _type: K }>>;
+  [K in ChildType["_type"]]: React.ComponentType<
+    Extract<ChildType, { _type: K }>
+  >;
 } = {
   "child-type-1": ChildComponent1,
   "child-type-2": ChildComponent2,
 };
 ```
 
+Routing for Multilingual Websites
+
+    For any project that requires multilingual support, you MUST use the built-in Next.js App Router. This is non-negotiable for correct internationalized (i18n) routing, metadata generation per language, and SEO.
+
+    The standard implementation is to use a dynamic [lang] segment in the URL structure.
+
+    Do NOT use client-side routing libraries like react-router-dom. They are not designed for the Next.js server-centric model and will lead to the exact href and metadata issues that need to be avoided.
+
+    The [lang] parameter from the URL is then used in GROQ queries to fetch the correct language-specific content from Sanity.
+
+// Correct folder structure for i18n routing
+/app
+└── [lang]
+├── layout.tsx
+├── page.tsx
+└── about
+└── page.tsx
+
 ## Sanity Studio Schema Types
+
 ### Content modelling
 
 - Unless explicitly modelling web pages or app views, create content models for what things are, not what they look like in a front-end
@@ -154,7 +181,7 @@ defineField({
       ],
     },
   },
-})
+});
 ```
 
 ### React Component Implementation
@@ -191,7 +218,6 @@ export default function ParentBlock({
   colorVariant,
   children,
 }: ParentBlock) {
-
   return (
     <SectionContainer color={colorVariant} padding={padding}>
       {children && children?.length > 0 && (
@@ -222,14 +248,14 @@ export default function ParentBlock({
 ```ts
 // studio/schemas/blocks/shared/block-content.ts
 
-import { defineField, defineType } from 'sanity'
+import { defineField, defineType } from "sanity";
 
 export default defineType({
-  title: 'Block content',
-  name: 'block-content',
-  type: 'array',
-  of: [defineArrayMember({ title: "Block", type: "block"})],
-})
+  title: "Block content",
+  name: "block-content",
+  type: "array",
+  of: [defineArrayMember({ title: "Block", type: "block" })],
+});
 ```
 
 ### Decorating schema types
@@ -252,6 +278,7 @@ When asked to write content:
 - NEVER include a `.` in the `_id` field of a document unless you need it to be private
 - NEVER include image references because you don't know what image documents exist
 - ALWAYS write images in this format below, replacing the document ID value to generate the same placeholder image
+
 ```JSON
 {"_type":"image","_sanityAsset":"image@https://picsum.photos/seed/[[REPLACE_WITH_DOCUMENT_ID]]/1920/1080"}
 ```
@@ -350,4 +377,21 @@ export const POSTS_SLUGS_QUERY = groq`*[_type == "post" && defined(slug)]{slug}`
 
 - ONLY write Types for responses if you cannot generate them with Sanity TypeGen
 - ALWAYS export a schema extraction first from inside of the Studio code-base with `npx sanity@latest typegen generate`
-- ALWAYS move that schema extraction file to the root of a front-end project before running `npx sanity@latest typegen generate` 
+- ALWAYS move that schema extraction file to the root of a front-end project before running `npx sanity@latest typegen generate`
+
+## Accessibility (a11y) Best Practices
+
+- ALWAYS use semantic HTML elements (`<nav>`, `<main>`, `<article>`, `<button>`) over generic `<div>`s to provide inherent meaning.
+- ENSURE all interactive elements (links, buttons, inputs) are fully keyboard-accessible and have a clear, visible focus state.
+- PROVIDE descriptive `alt` text for all images that convey information. For purely decorative images, use an empty `alt=""`.
+- USE ARIA (Accessible Rich Internet Applications) attributes only when necessary to bridge gaps where semantic HTML is insufficient.
+- FORMS must have `<label>` elements programmatically associated with their corresponding inputs.
+
+## Performance Optimization
+
+- ALWAYS use the Next.js `<Image>` component for all images. This provides automatic lazy loading, resizing, and format optimization.
+- USE `next/dynamic` to lazy-load large components or libraries that are not required for the initial page view (e.g., modals, heavy charting libraries).
+- PREFER Static Site Generation (SSG) for pages that can be pre-built. Use Server-Side Rendering (SSR) or Incremental Static Regeneration (ISR) for pages with highly dynamic content.
+- AVOID fetching data on the client side when it can be fetched on the server. This prevents request waterfalls and improves Largest Contentful Paint (LCP).
+- MEMOIZE expensive calculations or component renders with `useMemo` and `React.memo`, but only after profiling to confirm a bottleneck.
+- NEVER read dynamic sources (like `searchParams`, `headers`, or `cookies`) in a page component that also uses `generateStaticParams`. This creates a rendering conflict and will fail in production builds. Treat pages with `generateStaticParams` as purely static. If a route needs to handle search parameters for features like filtering or pagination, it must be a separate, fully dynamic route.
