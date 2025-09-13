@@ -39,10 +39,10 @@ export default [
       ...nextPlugin.configs["core-web-vitals"].rules,
 
       // --- Our Custom Rules ---
-      
+
       // CORRECTED: This is the correct rule to ban `any`
       "@typescript-eslint/no-explicit-any": "error",
-      
+
       // Warn about unused variables instead of erroring
       "@typescript-eslint/no-unused-vars": "warn",
 
@@ -50,18 +50,25 @@ export default [
       "import/order": [
         "error",
         {
-          "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
           "newlines-between": "always",
-          "alphabetize": { "order": "asc", "caseInsensitive": true },
+          alphabetize: { order: "asc", caseInsensitive: true },
         },
       ],
     },
     settings: {
-        "import/resolver": {
-            typescript: true,
-            node: true,
-        }
-    }
+      "import/resolver": {
+        typescript: true,
+        node: true,
+      },
+    },
   },
 
   // 3. Configuration for test files
