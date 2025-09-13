@@ -5,7 +5,6 @@ import { fetchSanityTeam } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
-
 type Team5Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
   { _type: "team-5" }

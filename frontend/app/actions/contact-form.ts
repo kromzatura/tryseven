@@ -5,9 +5,7 @@ import { Resend } from "resend";
 import { z } from "zod";
 
 import ContactFormEmail from "@/emails/contact-form";
-import {
-  contactFormSchema,
-} from "@/lib/schemas/contact-form";
+import { contactFormSchema } from "@/lib/schemas/contact-form";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

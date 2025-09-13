@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
-
 type Compare2Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
   { _type: "compare-2" }
