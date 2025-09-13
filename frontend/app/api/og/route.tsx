@@ -182,7 +182,7 @@ export async function GET(request: Request) {
         ],
       }
     );
-  } catch (_) {
+  } catch {
     return new Response(`Failed to generate image`, { status: 500 });
   }
 }
