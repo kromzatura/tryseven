@@ -1,14 +1,18 @@
----
 description:
 globs:
+alwaysApply: true
+
+---
+description: Global defaults for all files
+globs: "**/*"
 alwaysApply: true
 ---
 
 ---
-
 description: Opinionated guidance for configuring Sanity Studio and authoring content with Schema UI Starter
-globs: \*_/_.{ts,tsx,js,jsx}
+globs: "**/*.{ts,tsx,js,jsx}"
 alwaysApply: false
+---
 
 ---
 
