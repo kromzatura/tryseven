@@ -45,7 +45,10 @@ export default defineType({
                 type: "reference",
                 title: "Internal Link",
                 to: [{ type: "page" }, { type: "post" }],
-                hidden: ({ parent }) => parent?.isExternal,
+                hidden: ({ parent }) => !!parent?.isExternal,
+                options: {
+                  filter: 'defined(slug.current)',
+                },
               },
               {
                 name: "href",

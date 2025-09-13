@@ -3,6 +3,9 @@ import { Iframe } from "sanity-plugin-iframe-pane";
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
+const ENABLE_PRESENTATION =
+  (process.env.SANITY_STUDIO_ENABLE_PRESENTATION || "false").toLowerCase() ===
+  "true";
 
 // Specify document types that should have preview panes
 const previewSchemaTypes = ["page", "post", "contact"];
@@ -12,7 +15,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   { schemaType }
 ) => {
   // Add previews for specified schema types
-  if (previewSchemaTypes.includes(schemaType)) {
+  if (previewSchemaTypes.includes(schemaType) && !ENABLE_PRESENTATION) {
     return S.document().views([
       S.view.form(),
       S.view

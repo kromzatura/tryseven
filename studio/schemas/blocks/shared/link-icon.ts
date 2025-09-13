@@ -26,7 +26,10 @@ export default defineType({
       type: "reference",
       title: "Internal Link",
       to: [{ type: "page" }, { type: "post" }],
-      hidden: ({ parent }) => parent?.isExternal,
+      options: {
+        filter: 'defined(slug.current)'
+      },
+  hidden: ({ parent }) => Boolean(parent?.isExternal),
     }),
     defineField({
       name: "title",
@@ -41,7 +44,7 @@ export default defineType({
       name: "href",
       title: "href",
       type: "url",
-      hidden: ({ parent }) => !parent?.isExternal,
+  hidden: ({ parent }) => !Boolean(parent?.isExternal),
       validation: (Rule) =>
         Rule.uri({
           allowRelative: true,
@@ -52,7 +55,7 @@ export default defineType({
       name: "target",
       type: "boolean",
       title: "Open in new tab",
-      hidden: ({ parent }) => !parent?.isExternal,
+  hidden: ({ parent }) => !Boolean(parent?.isExternal),
     }),
     defineField({
       name: "buttonVariant",

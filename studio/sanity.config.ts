@@ -34,6 +34,13 @@ const apiVersion = process.env.SANITY_STUDIO_API_VERSION || "2024-10-31";
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || "http://localhost:3000";
 
+// Enable the Presentation plugin only when explicitly opted-in.
+// Running both Presentation + Iframe preview panes together can cause
+// excessive render churn when editing reference fields in dev.
+const ENABLE_PRESENTATION =
+  (process.env.SANITY_STUDIO_ENABLE_PRESENTATION || "false").toLowerCase() ===
+  "true";
+
 export default defineConfig({
   title: "Sanityblocks",
   projectId,
@@ -55,15 +62,22 @@ export default defineConfig({
   },
   plugins: [
     structureTool({ structure, defaultDocumentNode }),
-    presentationTool({
-      previewUrl: {
-        origin: SANITY_STUDIO_PREVIEW_URL,
-        draftMode: {
-          enable: "/api/draft-mode/enable",
-        },
-      },
-      resolve,
-    }),
+    // NOTE: Disable by default to prevent dev-time update loops while editing
+    // reference fields. Re-enable by setting SANITY_STUDIO_ENABLE_PRESENTATION=true
+    // if you prefer the Presentation plugin over the Iframe preview pane.
+    ...(ENABLE_PRESENTATION
+      ? [
+          presentationTool({
+            previewUrl: {
+              origin: SANITY_STUDIO_PREVIEW_URL,
+              draftMode: {
+                enable: "/api/draft-mode/enable",
+              },
+            },
+            resolve,
+          }),
+        ]
+      : []),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),

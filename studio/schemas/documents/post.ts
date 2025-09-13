@@ -48,11 +48,11 @@ export default defineType({
       group: "content",
     }),
     defineField({
-      name: "author",
-      title: "Author",
-      type: "reference",
+      name: "authors",
+      title: "Authors",
+      type: "array",
       group: "settings",
-      to: { type: "author" },
+      of: [{ type: "reference", to: [{ type: "author" }] }],
     }),
     image,
     defineField({
@@ -74,7 +74,7 @@ export default defineType({
   preview: {
     select: {
       title: "title",
-      author: "author.name",
+      author: "authors.0.name",
       media: "image",
     },
     prepare(selection) {
