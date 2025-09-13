@@ -29,29 +29,38 @@ export function generatePageMetadata({
       title?: string | null;
       description?: string | null;
       image?: {
-        asset?: { metadata?: { dimensions?: { width?: number; height?: number } } };
+        asset?: {
+          metadata?: { dimensions?: { width?: number; height?: number } };
+        };
       } | null;
       noindex?: boolean | null;
     } | null;
   };
-  type WithSeo = { seo?: { title?: string | null; metaDescription?: string | null } | null };
+  type WithSeo = {
+    seo?: { title?: string | null; metaDescription?: string | null } | null;
+  };
 
   const hasMeta = (v: unknown): v is WithMeta =>
-    typeof v === "object" && v !== null && "meta" in (v as Record<string, unknown>);
+    typeof v === "object" &&
+    v !== null &&
+    "meta" in (v as Record<string, unknown>);
   const hasSeo = (v: unknown): v is WithSeo =>
-    typeof v === "object" && v !== null && "seo" in (v as Record<string, unknown>);
+    typeof v === "object" &&
+    v !== null &&
+    "seo" in (v as Record<string, unknown>);
 
   const isCategory = type === "category";
   const title = isCategory
-    ? (hasSeo(page) && page.seo?.title) || (page as { title?: string | null })?.title
+    ? (hasSeo(page) && page.seo?.title) ||
+      (page as { title?: string | null })?.title
     : hasMeta(page)
-      ? page.meta?.title
-      : undefined;
+    ? page.meta?.title
+    : undefined;
   const description = isCategory
     ? (hasSeo(page) && page.seo?.metaDescription) || undefined
     : hasMeta(page)
-      ? page.meta?.description
-      : undefined;
+    ? page.meta?.description
+    : undefined;
   const image = hasMeta(page) ? page.meta?.image : undefined;
 
   return {
@@ -73,8 +82,8 @@ export function generatePageMetadata({
     robots: !isProduction
       ? "noindex, nofollow"
       : hasMeta(page) && page.meta?.noindex
-        ? "noindex"
-        : "index, follow",
+      ? "noindex"
+      : "index, follow",
     alternates: {
       canonical: `/${slug === "index" ? "" : slug}`,
     },

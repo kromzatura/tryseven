@@ -40,9 +40,9 @@ export async function GET(request: Request) {
       return new Response("Missing slug parameter", { status: 400 });
     }
 
-  const post = await fetchSanityPostBySlug({ slug });
-  const page = await fetchSanityPageBySlug({ slug });
-  // Note: category OG currently falls back to generic template via getOgImageUrl
+    const post = await fetchSanityPostBySlug({ slug });
+    const page = await fetchSanityPageBySlug({ slug });
+    // Note: category OG currently falls back to generic template via getOgImageUrl
     const settings = await fetchSanitySettings();
 
     if (!post && !page) {
@@ -69,11 +69,16 @@ export async function GET(request: Request) {
           }}
         >
           {/* Logo */}
-          {settings?.logo && (
+          {settings?.logo &&
             (() => {
               const src = settings.logo.asset?.url
                 ? settings.logo.asset.url
-                : urlFor(settings.logo).width(300).height(42).fit("max").format("png").url();
+                : urlFor(settings.logo)
+                    .width(300)
+                    .height(42)
+                    .fit("max")
+                    .format("png")
+                    .url();
               return src ? (
                 <img
                   src={src}
@@ -83,8 +88,7 @@ export async function GET(request: Request) {
                   style={{ marginBottom: 48 }}
                 />
               ) : null;
-            })()
-          )}
+            })()}
 
           {/* Main Content */}
           <div
