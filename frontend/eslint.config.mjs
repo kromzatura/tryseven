@@ -1,14 +1,37 @@
-import next from 'eslint-config-next'
+import nextPlugin from '@next/eslint-plugin-next/dist/index.js';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import globals from 'globals';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  ...next,
+  {
+    ignores: ['.next/', 'postcss.config.js'],
+  },
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    plugins: {
+      '@next/next': nextPlugin,
+      '@typescript-eslint': tsPlugin,
+    },
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
+      // You can override or add rules here
+    },
+  },
   {
     files: ['test/**/*.{ts,tsx}', '**/*.spec.{ts,tsx}', '**/*.test.{ts,tsx}'],
-    rules: {
-      // Relax common rules in test files if needed
-      'import/no-extraneous-dependencies': 'off',
-    },
     languageOptions: {
       globals: {
         // Vitest globals
@@ -24,4 +47,4 @@ export default [
       },
     },
   },
-]
+];

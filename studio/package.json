@@ -1,5 +1,5 @@
 {
-  "name": "sanityblocks",
+  "name": "sanityblocks-studio",
   "version": "1.1.1",
   "private": true,
   "scripts": {
@@ -31,14 +31,18 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^15.5.3",
     "@sanity/client": "^7.11.1",
     "@sanity/eslint-config-studio": "^5.0.2",
     "@sanity/types": "^4.8.1",
     "@types/node": "^24.0.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
     "dotenv": "^17.0.1",
-    "eslint": "^9.0.0",
+    "eslint": "^9.35.0",
+    "eslint-config-next": "^15.5.3",
     "typescript": "^5.8.3"
   }
 }

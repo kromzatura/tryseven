@@ -1,13 +1,10 @@
-import { defineConfig } from 'vitest/config'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
   test: {
-    environment: 'jsdom',
-    setupFiles: ['./test/setup.ts'],
-    include: ['test/**/*.{test,spec}.{ts,tsx}'],
     globals: true,
-    css: false,
+    environment: 'happy-dom',
+    setupFiles: ['./test/setup.ts'],
+    include: ['**/*.{test,spec}.{ts,tsx}'],
   },
-})
+});
