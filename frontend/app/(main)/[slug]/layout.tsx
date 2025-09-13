@@ -18,7 +18,10 @@ export default async function DynamicPageLayout({
     notFound();
   }
 
-  const links = buildPageBreadcrumbs((page.meta?.title as string | undefined) ?? undefined, slug);
+  const links = buildPageBreadcrumbs(
+    (page.meta?.title as string | undefined) ?? undefined,
+    slug
+  );
 
   return (
     <>

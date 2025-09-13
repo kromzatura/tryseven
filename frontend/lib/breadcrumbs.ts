@@ -8,14 +8,14 @@ export function buildHomeCrumb(): BreadcrumbLink[] {
 }
 
 export function buildBlogBreadcrumbs(title?: string | null): BreadcrumbLink[] {
-  const crumbs: BreadcrumbLink[] = [
-    { label: "Blog", href: "/blog" },
-  ];
+  const crumbs: BreadcrumbLink[] = [{ label: "Blog", href: "/blog" }];
   if (title) crumbs.push({ label: title, href: "#" });
   return crumbs;
 }
 
-export function buildCategoryBreadcrumbs(title?: string | null): BreadcrumbLink[] {
+export function buildCategoryBreadcrumbs(
+  title?: string | null
+): BreadcrumbLink[] {
   const crumbs: BreadcrumbLink[] = [
     { label: "Categories", href: "/categories" },
   ];
@@ -23,7 +23,10 @@ export function buildCategoryBreadcrumbs(title?: string | null): BreadcrumbLink[
   return crumbs;
 }
 
-export function buildPageBreadcrumbs(title?: string | null, slug?: string): BreadcrumbLink[] {
+export function buildPageBreadcrumbs(
+  title?: string | null,
+  slug?: string
+): BreadcrumbLink[] {
   const crumbs: BreadcrumbLink[] = [];
   if (slug && slug !== "index") {
     crumbs.push({ label: title || slug, href: `/${slug}` });

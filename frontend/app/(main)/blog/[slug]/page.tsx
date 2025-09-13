@@ -13,7 +13,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 import { POST_QUERYResult } from "@/sanity.types";
 
-
 type Heading = {
   text: string;
   level: number;
