@@ -17,11 +17,16 @@
   "homepage": "https://largseeds.nl/",
   "devDependencies": {
     "@sanity/client": "^7.9.0",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.3.3",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.2",
-    "p-limit": "^5.0.0",
+    "lint-staged": "^16.1.6",
+    "p-limit": "^7.1.1",
     "tsx": "^4.19.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "prismjs": "^1.30.0"
+    }
   },
   "lint-staged": {
     "frontend/**/*.{ts,tsx,js,jsx}": [

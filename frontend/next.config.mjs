@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  eslint: {
+    // We run ESLint in CI and pre-commit; skip during `next build`.
+    ignoreDuringBuilds: true,
+  },
   async redirects() {
     return [
       {

@@ -28,7 +28,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { getNavigationItems } from "@/lib/getNavigationItems";
-import { cn } from "@/lib/utils";
+import { cn, resolveSanityString } from "@/lib/utils";
 import { fetchSanitySettings } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import type {
@@ -160,7 +160,7 @@ export default async function Navbar1({ className }: Navbar1Props) {
                 />
               ) : (
                 <span className="text-lg font-semibold tracking-tighter">
-                  {settings?.siteName || "Logo"}
+                  {resolveSanityString(settings?.siteName) || "Logo"}
                 </span>
               )}
             </Link>
@@ -207,7 +207,7 @@ export default async function Navbar1({ className }: Navbar1Props) {
                 />
               ) : (
                 <span className="text-lg font-semibold tracking-tighter">
-                  {settings?.siteName || "Logo"}
+                  {resolveSanityString(settings?.siteName) || "Logo"}
                 </span>
               )}
             </Link>

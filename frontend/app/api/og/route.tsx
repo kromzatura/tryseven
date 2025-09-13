@@ -68,14 +68,21 @@ export async function GET(request: Request) {
           }}
         >
           {/* Logo */}
-          {settings?.logo && settings.logo.asset?.url && (
-            <img
-              src={settings.logo.asset.url}
-              alt={settings.logo.alt || ""}
-              width={300}
-              height={42}
-              style={{ marginBottom: 48 }}
-            />
+          {settings?.logo && (
+            (() => {
+              const src = settings.logo.asset?.url
+                ? settings.logo.asset.url
+                : urlFor(settings.logo).width(300).height(42).fit("max").format("png").url();
+              return src ? (
+                <img
+                  src={src}
+                  alt={settings.logo.alt || ""}
+                  width={300}
+                  height={42}
+                  style={{ marginBottom: 48 }}
+                />
+              ) : null;
+            })()
           )}
 
           {/* Main Content */}

@@ -8,6 +8,7 @@ import { ReactNode } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CopyButton } from "@/components/ui/copy-button";
+import { urlFor } from "@/sanity/lib/image";
 
 
 const getTextFromChildren = (children: ReactNode): string => {
@@ -26,15 +27,35 @@ const getTextFromChildren = (children: ReactNode): string => {
 const portableTextComponents: PortableTextProps["components"] = {
   types: {
     image: ({ value }) => {
-      const { url, metadata } = value.asset;
-      const { lqip, dimensions } = metadata;
+      const asset = value?.asset as
+        | { url?: string; metadata?: { lqip?: string; dimensions?: { width: number; height: number } } }
+        | { _ref?: string | null }
+        | null
+        | undefined;
+
+      const directUrl = (asset as { url?: string })?.url;
+      const lqip = (asset as { metadata?: { lqip?: string } })?.metadata?.lqip;
+      const dims = (asset as { metadata?: { dimensions?: { width: number; height: number } } })?.metadata?.dimensions;
+
+      let src = directUrl;
+      let width = dims?.width ?? 800;
+      let height = dims?.height ?? 450;
+
+      const hasRef = !!(asset && typeof asset === "object" && "_ref" in asset && typeof (asset as { _ref?: unknown })._ref === "string");
+      if (!src && value && hasRef) {
+        const built = urlFor(value).width(width).height(height).fit("crop").format("webp").url();
+        src = built || undefined;
+      }
+
+      if (!src) return null;
+
       return (
         <Image
           className="m-auto aspect-video rounded-xl"
-          src={url}
+          src={src}
           alt={value.alt || "Image"}
-          width={dimensions.width}
-          height={dimensions.height}
+          width={width}
+          height={height}
           placeholder={lqip ? "blur" : undefined}
           blurDataURL={lqip || undefined}
           quality={100}

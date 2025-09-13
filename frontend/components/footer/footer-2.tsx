@@ -4,7 +4,7 @@ import Link from "next/link";
 import PortableTextRenderer from "@/components/portable-text-renderer";
 import { buttonVariants } from "@/components/ui/button";
 import { getNavigationItems } from "@/lib/getNavigationItems";
-import { cn } from "@/lib/utils";
+import { cn, resolveSanityString } from "@/lib/utils";
 import { fetchSanitySettings } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -50,11 +50,13 @@ export default async function Footer2({ className }: Footer2Props) {
                   />
                 ) : (
                   <span className="text-lg font-semibold tracking-tighter">
-                    {settings?.siteName || "Logo"}
+                    {resolveSanityString(settings?.siteName) || "Logo"}
                   </span>
                 )}
               </Link>
-              <p className="mt-4 font-bold">{settings?.description}</p>
+              <p className="mt-4 font-bold">
+                {resolveSanityString(settings?.description)}
+              </p>
             </div>
             {footerNavItems?.map((section) => {
               if (section._type !== "link-group") return null;
