@@ -9,6 +9,7 @@ import {
   PhoneCall,
   Users,
   Info,
+  LayoutList,
 } from "lucide-react";
 import { defaultDocumentNode } from "./defaultDocumentNode";
 
@@ -46,6 +47,18 @@ export const structure = (S: any, context: any) =>
           S.documentTypeList("category")
             .title("Category")
             .defaultOrdering([{ field: "title", direction: "asc" }])
+        ),
+      S.listItem()
+        .title("Categories Index")
+        .icon(LayoutList)
+        .child(
+          (
+            defaultDocumentNode(S, { ...context, schemaType: "categories" }) ||
+            S.document()
+          )
+            .id("categories")
+            .schemaType("categories")
+            .documentId("categories")
         ),
       orderableDocumentListDeskItem({
         type: "author",

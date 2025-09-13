@@ -7,6 +7,14 @@ import {
 export const resolve: PresentationPluginOptions["resolve"] = {
   locations: {
     // Add more locations for other post types
+    categories: defineLocations({
+      select: { title: "title" },
+      resolve: (doc) => ({
+        locations: [
+          { title: doc?.title || "Categories", href: "/categories" },
+        ],
+      }),
+    }),
     post: defineLocations({
       select: {
         title: "title",
@@ -35,6 +43,10 @@ export const resolve: PresentationPluginOptions["resolve"] = {
     {
       route: "/blog/:slug",
       filter: `_type == 'post' && slug.current == $slug`,
+    },
+    {
+      route: "/categories",
+      filter: `_type == 'categories'`,
     },
   ]),
 };

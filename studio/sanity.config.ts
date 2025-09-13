@@ -25,7 +25,7 @@ const singletonActions = new Set([
 ]);
 
 // Define the singleton document types
-const singletonTypes = new Set(["settings", "contact", "banner"]);
+const singletonTypes = new Set(["settings", "contact", "banner", "categories"]);
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || "your-project-id";
 const dataset = process.env.SANITY_STUDIO_DATASET || "production";

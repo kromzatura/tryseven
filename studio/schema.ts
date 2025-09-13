@@ -129,7 +129,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     settings,
     contact,
-  categories,
+    categories,
     changelog,
     team,
     banner,

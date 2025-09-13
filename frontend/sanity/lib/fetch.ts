@@ -1,5 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { BANNER_QUERY } from "@/sanity/queries/banner";
+import { CATEGORIES_INDEX_QUERY } from "@/sanity/queries/categories";
 import {
   CATEGORY_QUERY,
   CATEGORIES_SLUGS_QUERY,
@@ -17,7 +18,6 @@ import {
 } from "@/sanity/queries/post";
 import { SETTINGS_QUERY } from "@/sanity/queries/settings";
 import { TEAM_QUERY } from "@/sanity/queries/team";
-import { CATEGORIES_INDEX_QUERY } from "@/sanity/queries/categories";
 import {
   PAGE_QUERYResult,
   PAGES_SLUGS_QUERYResult,
@@ -169,15 +169,17 @@ export const fetchSanityContact = async (): Promise<CONTACT_QUERYResult> => {
   return data;
 };
 
-export const fetchSanityCategoriesIndex = async (): Promise<
-  { title?: string | null; description?: string | null } & {
-    meta?: { title?: string | null; description?: string | null } | null;
-  }
-> => {
+type CategoriesIndexDoc = {
+  title?: string | null;
+  description?: string | null;
+  meta?: { title?: string | null; description?: string | null } | null;
+};
+
+export const fetchSanityCategoriesIndex = async (): Promise<CategoriesIndexDoc> => {
   const { data } = await sanityFetch({
     query: CATEGORIES_INDEX_QUERY,
   });
-  return data as any;
+  return data as CategoriesIndexDoc;
 };
 
 export const fetchSanityCategories = async (): Promise<

@@ -6,6 +6,14 @@ const categories = defineType({
   title: "Categories Index",
   type: "document",
   icon: LayoutList,
+  initialValue: {
+    title: "Categories",
+    description: "Browse all categories.",
+    seo: {
+      title: "Categories",
+      metaDescription: "Browse all categories",
+    },
+  },
   groups: [
     { name: "content", title: "Content", icon: LayoutList },
     { name: "seo", title: "SEO", icon: Search },
