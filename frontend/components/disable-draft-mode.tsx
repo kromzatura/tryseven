@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useDraftModeEnvironment } from "next-sanity/hooks";
 
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-
 
 export function DisableDraftMode() {
   const environment = useDraftModeEnvironment();
@@ -23,7 +23,7 @@ export function DisableDraftMode() {
   }
 
   return (
-    <a
+    <Link
       className={cn(
         buttonVariants({
           size: "lg",
@@ -31,8 +31,9 @@ export function DisableDraftMode() {
         "fixed bottom-4 right-4"
       )}
       href="/api/draft-mode/disable"
+      prefetch={false}
     >
       Disable Draft Mode
-    </a>
+    </Link>
   );
 }

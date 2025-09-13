@@ -8,14 +8,6 @@ type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Feature15 = Extract<Block, { _type: "feature-15" }>;
 type FeatureColumn = NonNullable<NonNullable<Feature15["columns"]>[number]>;
 
-const componentMap: {
-  [K in FeatureColumn["_type"]]: React.ComponentType<
-    Extract<FeatureColumn, { _type: K }>
-  >;
-} = {
-  "feature-15-card": Feature15Card,
-};
-
 export default function Feature15({
   padding,
   columns,
@@ -32,15 +24,20 @@ export default function Feature15({
           )}
         >
           {columns?.map((column) => {
-            const Component = componentMap[column._type];
-            if (!Component) {
-              // Fallback for development/debugging of new component types
-              console.warn(
-                `No component implemented for column type: ${column._type}`
-              );
-              return <div data-type={column._type} key={column._key} />;
+            switch (column._type) {
+              case "feature-15-card":
+                return (
+                  <Feature15Card
+                    key={column._key}
+                    {...(column as Extract<
+                      FeatureColumn,
+                      { _type: "feature-15-card" }
+                    >)}
+                  />
+                );
+              default:
+                return null;
             }
-            return <Component {...(column as any)} key={column._key} />;
           })}
         </div>
       )}

@@ -1,6 +1,5 @@
 import { CheckCircle2, CircleMinus } from "lucide-react";
 import Image from "next/image";
-import { Fragment } from "react";
 
 import SectionContainer from "@/components/ui/section-container";
 import { Separator } from "@/components/ui/separator";

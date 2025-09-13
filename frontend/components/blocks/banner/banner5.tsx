@@ -3,7 +3,6 @@
 import { X } from "lucide-react";
 import Link from "next/link";
 
-import Icon from "@/components/icon";
 import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";

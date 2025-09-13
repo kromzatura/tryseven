@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import SectionContainer from "@/components/ui/section-container";
-import { cn } from "@/lib/utils";
 import { fetchSanityTeam } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";

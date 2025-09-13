@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 
 import Icon from "@/components/icon";
 import PortableTextRenderer from "@/components/portable-text-renderer";

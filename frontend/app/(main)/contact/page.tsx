@@ -8,9 +8,7 @@ import { fetchSanityContact } from "@/sanity/lib/fetch";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 import { Link as LinkType } from "@/sanity.types";
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata() {
   const contact = await fetchSanityContact();
 
   if (!contact) {
