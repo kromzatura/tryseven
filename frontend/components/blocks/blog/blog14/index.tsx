@@ -29,7 +29,7 @@ export default function Blog14({ padding, posts, title, gridColumns }: Blog14) {
               sizes="(min-width: 1024px) 33vw, 100vw"
               width={posts[0].image.asset?.metadata?.dimensions?.width || 700}
               height={posts[0].image.asset?.metadata?.dimensions?.height || 400}
-              quality={100}
+
             />
           )}
           <div className="flex flex-col items-start gap-4">
@@ -95,7 +95,7 @@ export default function Blog14({ padding, posts, title, gridColumns }: Blog14) {
                     height={
                       post.image.asset?.metadata?.dimensions?.height || 400
                     }
-                    quality={100}
+
                   />
                 )}
                 {posts[0].categories && posts[0].categories.length > 0 && (

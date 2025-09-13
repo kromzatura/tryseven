@@ -10,7 +10,12 @@ import prettierConfig from "eslint-config-prettier";
 export default [
   // 1. Global ignores
   {
-    ignores: [".next/", "postcss.config.js", "tailwind.config.js"],
+    ignores: [
+      ".next/",
+      "postcss.config.js",
+      "tailwind.config.js",
+      "next-env.d.ts",
+    ],
   },
 
   // 2. Main configuration for all JS/TS files

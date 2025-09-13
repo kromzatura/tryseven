@@ -29,7 +29,7 @@ export default function Feature157Card({ image, link }: Feature157Card) {
           sizes="(min-width: 640px) 50vw, 100vw"
           width={image.asset?.metadata?.dimensions?.width || 800}
           height={image.asset?.metadata?.dimensions?.height || 800}
-          quality={100}
+
         />
       )}
       <div className="flex items-center gap-2 mb-2">

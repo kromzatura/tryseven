@@ -101,7 +101,7 @@ export default function Gallery8({ padding, link, columns }: Gallery8Props) {
                             column.image.asset?.metadata?.dimensions?.height ||
                             500
                           }
-                          quality={100}
+
                         />
                       )}
                       <div className="px-6 py-8">

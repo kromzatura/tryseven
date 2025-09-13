@@ -57,7 +57,7 @@ export default async function Team8({ padding }: Team8Props) {
                           member.image.asset?.metadata?.dimensions?.height ||
                           350
                         }
-                        quality={100}
+
                       />
                     )}
                     <div className="mt-6 flex flex-col justify-center">

@@ -80,7 +80,7 @@ export default function Timeline3({
                     height={
                       column.image.asset?.metadata?.dimensions?.height || 500
                     }
-                    quality={100}
+
                     className="aspect-video w-full rounded-xl border border-dashed object-cover"
                   />
                 )}

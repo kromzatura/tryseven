@@ -58,7 +58,6 @@ const portableTextComponents: PortableTextProps["components"] = {
           height={height}
           placeholder={lqip ? "blur" : undefined}
           blurDataURL={lqip || undefined}
-          quality={100}
         />
       );
     },

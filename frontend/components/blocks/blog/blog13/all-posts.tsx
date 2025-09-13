@@ -66,7 +66,7 @@ export default async function AllPosts13({
                     height={
                       post.image.asset?.metadata?.dimensions?.height || 400
                     }
-                    quality={100}
+
                   />
                 )}
                 {post.categories && post.categories.length > 0 && (

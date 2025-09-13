@@ -135,7 +135,7 @@ export default function Gallery4({
                             item.image.asset?.metadata?.dimensions?.height ||
                             500
                           }
-                          quality={100}
+
                         />
                       )}
                       <div className="absolute inset-0 h-full bg-[linear-gradient(transparent_20%,var(--primary)_100%)] mix-blend-multiply" />

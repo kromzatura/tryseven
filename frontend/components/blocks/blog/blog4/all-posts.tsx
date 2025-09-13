@@ -73,7 +73,7 @@ export default async function AllPosts4({
                       height={
                         post.image.asset?.metadata?.dimensions?.height || 400
                       }
-                      quality={100}
+
                     />
                   )}
                 </div>

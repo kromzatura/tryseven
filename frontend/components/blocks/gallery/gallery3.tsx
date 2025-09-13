@@ -129,7 +129,7 @@ export default function Gallery3({ title, padding, columns }: Gallery3Props) {
                                   item.image.asset?.metadata?.dimensions
                                     ?.height || 500
                                 }
-                                quality={100}
+
                               />
                             )}
                           </div>

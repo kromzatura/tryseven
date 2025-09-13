@@ -36,7 +36,7 @@ export default function Compare5({ padding, columns }: Compare5Props) {
                     height={
                       column.image?.asset?.metadata?.dimensions?.height || 600
                     }
-                    quality={100}
+
                   />
                 )}
                 <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black via-black/50 to-transparent backdrop-blur-[2px] sm:h-[45%] md:h-[50%]" />

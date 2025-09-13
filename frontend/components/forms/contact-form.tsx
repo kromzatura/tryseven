@@ -6,7 +6,14 @@ import { useForm } from "react-hook-form";
 
 import { type ContactFormState } from "@/app/actions/contact-form";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormLabel } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -72,80 +79,72 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
             {formState.error}
           </div>
         )}
+
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="grid w-full items-center gap-1.5">
-            <FormLabel htmlFor="firstName">
-              First Name<sup className="ml-0.5">*</sup>
-            </FormLabel>
-            <FormControl>
-              <Input
-                type="text"
-                id="firstName"
-                placeholder="Your First Name"
-                {...form.register("firstName")}
-              />
-            </FormControl>
-            {form.formState.errors.firstName && (
-              <p className="text-sm text-red-500">
-                {form.formState.errors.firstName.message}
-              </p>
+          <FormField
+            control={form.control}
+            name="firstName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  First Name<sup className="ml-0.5">*</sup>
+                </FormLabel>
+                <FormControl>
+                  <Input type="text" placeholder="Your First Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
-          </div>
-          <div className="grid w-full items-center gap-1.5">
-            <FormLabel htmlFor="lastName">
-              Last Name<sup className="ml-0.5">*</sup>
-            </FormLabel>
-            <FormControl>
-              <Input
-                type="text"
-                id="lastName"
-                placeholder="Your Last Name"
-                {...form.register("lastName")}
-              />
-            </FormControl>
-            {form.formState.errors.lastName && (
-              <p className="text-sm text-red-500">
-                {form.formState.errors.lastName.message}
-              </p>
+          />
+          <FormField
+            control={form.control}
+            name="lastName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  Last Name<sup className="ml-0.5">*</sup>
+                </FormLabel>
+                <FormControl>
+                  <Input type="text" placeholder="Your Last Name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
             )}
-          </div>
-        </div>
-        <div className="grid w-full items-center gap-1.5">
-          <FormLabel htmlFor="email">
-            Email Address<sup className="ml-0.5">*</sup>
-          </FormLabel>
-          <FormControl>
-            <Input
-              type="email"
-              id="email"
-              placeholder="Your Email"
-              {...form.register("email")}
-            />
-          </FormControl>
-          {form.formState.errors.email && (
-            <p className="text-sm text-red-500">
-              {form.formState.errors.email.message}
-            </p>
-          )}
+          />
         </div>
 
-        <div className="grid w-full gap-1.5">
-          <FormLabel htmlFor="message">
-            Your Message<sup className="ml-0.5">*</sup>
-          </FormLabel>
-          <FormControl>
-            <Textarea
-              placeholder="How can we help you?"
-              id="message"
-              {...form.register("message")}
-            />
-          </FormControl>
-          {form.formState.errors.message && (
-            <p className="text-sm text-red-500">
-              {form.formState.errors.message.message}
-            </p>
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Email Address<sup className="ml-0.5">*</sup>
+              </FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="Your Email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
           )}
-        </div>
+        />
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Your Message<sup className="ml-0.5">*</sup>
+              </FormLabel>
+              <FormControl>
+                <Textarea placeholder="How can we help you?" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <Button className="w-full" type="submit" disabled={isPending}>
           {isPending ? "Sending..." : "Submit"}
         </Button>

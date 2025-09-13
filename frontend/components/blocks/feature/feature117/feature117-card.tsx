@@ -42,7 +42,7 @@ export default function Feature117Card({
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           width={image.asset?.metadata?.dimensions?.width || 800}
           height={image.asset?.metadata?.dimensions?.height || 800}
-          quality={100}
+
         />
       )}
       <div className="absolute top-0 right-0 bottom-0 left-0 translate-y-20 rounded-xl bg-gradient-to-t from-primary to-transparent transition-transform duration-300 group-hover:translate-y-0"></div>

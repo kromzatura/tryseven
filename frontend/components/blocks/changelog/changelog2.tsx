@@ -43,7 +43,6 @@ export default async function Changelog2({ padding }: Changelogs2Props) {
                   height={
                     changelog.image.asset?.metadata?.dimensions?.height || 400
                   }
-                  quality={100}
                 />
               )}
               {changelog.title && (

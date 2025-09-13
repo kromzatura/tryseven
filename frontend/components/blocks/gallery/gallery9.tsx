@@ -66,7 +66,7 @@ export default function Gallery9({ padding, columns }: Gallery9Props) {
                     height={
                       column.image.asset?.metadata?.dimensions?.height || 1000
                     }
-                    quality={100}
+
                   />
                 )}
                 <div className="mt-8 flex cursor-pointer flex-col gap-2 md:hidden">

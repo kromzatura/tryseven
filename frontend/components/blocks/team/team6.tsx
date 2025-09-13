@@ -40,7 +40,7 @@ export default async function Team6({ padding }: Team6Props) {
                     height={
                       member.image.asset?.metadata?.dimensions?.height || 350
                     }
-                    quality={100}
+
                   />
                 )}
               </div>

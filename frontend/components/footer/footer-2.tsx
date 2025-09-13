@@ -46,7 +46,6 @@ export default async function Footer2({ className }: Footer2Props) {
                     blurDataURL={
                       settings.logo.asset?.metadata?.lqip || undefined
                     }
-                    quality={100}
                   />
                 ) : (
                   <span className="text-lg font-semibold tracking-tighter">

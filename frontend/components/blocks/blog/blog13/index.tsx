@@ -40,7 +40,7 @@ export default function Blog13({ padding, posts, gridColumns }: Blog13) {
                     height={
                       post.image.asset?.metadata?.dimensions?.height || 400
                     }
-                    quality={100}
+
                   />
                 )}
                 {post.categories && post.categories.length > 0 && (

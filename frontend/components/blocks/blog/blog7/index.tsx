@@ -46,7 +46,7 @@ export default function Blog7({ padding, posts, gridColumns }: Blog7) {
                     height={
                       post.image.asset?.metadata?.dimensions?.height || 400
                     }
-                    quality={100}
+
                   />
                 )}
               </div>

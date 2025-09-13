@@ -42,7 +42,7 @@ export default function Compare2({ padding, columns }: Compare2Props) {
                     height={
                       column.image?.asset?.metadata?.dimensions?.height || 28
                     }
-                    quality={100}
+
                   />
                 )}
                 {column.title}

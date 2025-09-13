@@ -63,7 +63,7 @@ export default async function AllPosts14({
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   width={post.image.asset?.metadata?.dimensions?.width || 700}
                   height={post.image.asset?.metadata?.dimensions?.height || 400}
-                  quality={100}
+
                 />
               )}
               {posts[0].categories && posts[0].categories.length > 0 && (

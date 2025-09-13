@@ -170,7 +170,7 @@ export default function Changelog5({
                         changelog.image.asset?.metadata?.dimensions?.height ||
                         400
                       }
-                      quality={100}
+
                     />
                   )}
                   {changelog.categories && changelog.categories.length > 0 && (

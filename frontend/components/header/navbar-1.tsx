@@ -156,7 +156,6 @@ export default async function Navbar1({ className }: Navbar1Props) {
                     settings.logo.asset?.metadata?.lqip ? "blur" : undefined
                   }
                   blurDataURL={settings.logo.asset?.metadata?.lqip || undefined}
-                  quality={100}
                 />
               ) : (
                 <span className="text-lg font-semibold tracking-tighter">
@@ -203,7 +202,6 @@ export default async function Navbar1({ className }: Navbar1Props) {
                     settings.logo.asset?.metadata?.lqip ? "blur" : undefined
                   }
                   blurDataURL={settings.logo.asset?.metadata?.lqip || undefined}
-                  quality={100}
                 />
               ) : (
                 <span className="text-lg font-semibold tracking-tighter">
@@ -242,7 +240,6 @@ export default async function Navbar1({ className }: Navbar1Props) {
                           blurDataURL={
                             settings.logo.asset?.metadata?.lqip || undefined
                           }
-                          quality={100}
                         />
                       ) : (
                         <span className="text-lg font-semibold tracking-tighter">

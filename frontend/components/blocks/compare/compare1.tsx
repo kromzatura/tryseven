@@ -44,7 +44,7 @@ export default function Compare1({ padding, images, columns }: Compare1Props) {
                         height={
                           image?.asset?.metadata?.dimensions?.height || 50
                         }
-                        quality={100}
+
                       />
                     </div>
                   )

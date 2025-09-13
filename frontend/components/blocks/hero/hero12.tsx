@@ -111,7 +111,7 @@ const Hero12 = ({
                           width={24}
                           height={24}
                           className="h-6 saturate-0 transition-all group-hover:saturate-100"
-                          quality={100}
+
                         />
                       )}
                     </Link>

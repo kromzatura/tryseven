@@ -36,7 +36,7 @@ export default async function Team5({ padding }: Team5Props) {
                     height={
                       member.image.asset?.metadata?.dimensions?.height || 350
                     }
-                    quality={100}
+
                   />
                 )}
               </div>

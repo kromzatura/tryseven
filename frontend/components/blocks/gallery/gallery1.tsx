@@ -61,7 +61,7 @@ export default function Gallery1({ padding, columns }: Gallery1Props) {
                             column.image.asset?.metadata?.dimensions?.height ||
                             500
                           }
-                          quality={100}
+
                         />
                       )}
                     </div>
@@ -85,7 +85,7 @@ export default function Gallery1({ padding, columns }: Gallery1Props) {
                         height={
                           column.logo.asset?.metadata?.dimensions?.height || 420
                         }
-                        quality={100}
+
                       />
                     )}
                   </div>
@@ -124,7 +124,7 @@ export default function Gallery1({ padding, columns }: Gallery1Props) {
                             column.logo.asset?.metadata?.dimensions?.height ||
                             420
                           }
-                          quality={100}
+
                         />
                       )}
                     </div>

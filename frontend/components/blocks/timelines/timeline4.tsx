@@ -139,7 +139,7 @@ export default function Timeline4({
                               column.image.asset?.metadata?.dimensions
                                 ?.height || 500
                             }
-                            quality={100}
+
                           />
                         )}
                         <DiagonalPattern className="w-6 lg:w-10" />

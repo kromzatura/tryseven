@@ -26,7 +26,7 @@ export default function Feature66Card({ logo, image, link }: Feature66Card) {
             sizes="(min-width: 640px) 50vw, 100vw"
             width={image.asset?.metadata?.dimensions?.width || 800}
             height={image.asset?.metadata?.dimensions?.height || 800}
-            quality={100}
+
           />
         )}
         <div className="absolute inset-x-0 bottom-0 mt-auto max-h-[50%] min-h-[50%] bg-[linear-gradient(transparent,var(--primary)_80%)] mix-blend-multiply" />
@@ -41,7 +41,7 @@ export default function Feature66Card({ logo, image, link }: Feature66Card) {
               sizes="130px"
               width={logo.asset?.metadata?.dimensions?.width || 800}
               height={logo.asset?.metadata?.dimensions?.height || 800}
-              quality={100}
+
             />
           )}
           <p className="text-xl font-semibold text-white">{link?.title}</p>
