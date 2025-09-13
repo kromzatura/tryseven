@@ -40,8 +40,9 @@ export async function GET(request: Request) {
       return new Response("Missing slug parameter", { status: 400 });
     }
 
-    const post = await fetchSanityPostBySlug({ slug });
-    const page = await fetchSanityPageBySlug({ slug });
+  const post = await fetchSanityPostBySlug({ slug });
+  const page = await fetchSanityPageBySlug({ slug });
+  // Note: category OG currently falls back to generic template via getOgImageUrl
     const settings = await fetchSanitySettings();
 
     if (!post && !page) {

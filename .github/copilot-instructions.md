@@ -395,3 +395,12 @@ export const POSTS_SLUGS_QUERY = groq`*[_type == "post" && defined(slug)]{slug}`
 - AVOID fetching data on the client side when it can be fetched on the server. This prevents request waterfalls and improves Largest Contentful Paint (LCP).
 - MEMOIZE expensive calculations or component renders with `useMemo` and `React.memo`, but only after profiling to confirm a bottleneck.
 - NEVER read dynamic sources (like `searchParams`, `headers`, or `cookies`) in a page component that also uses `generateStaticParams`. This creates a rendering conflict and will fail in production builds. Treat pages with `generateStaticParams` as purely static. If a route needs to handle search parameters for features like filtering or pagination, it must be a separate, fully dynamic route.
+
+## Metadata and SEO
+
+    ALWAYS ensure every new document type that has a public-facing page is integrated with the centralized generatePageMetadata helper located in @/sanity/lib/metadata.
+    When adding a new page route (e.g., for category pages), the workflow is a two-step process:
+
+    First, update the generatePageMetadata helper function to add a new case that handles the new document type and its specific SEO fields.
+
+    Second, implement the generateMetadata export in the new page.tsx file, which fetches the document from Sanity and passes it to the centralized helper.

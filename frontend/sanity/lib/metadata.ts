@@ -12,21 +12,59 @@ export function generatePageMetadata({
   slug,
   type,
 }: {
-  page: PAGE_QUERYResult | POST_QUERYResult | CONTACT_QUERYResult;
+  page:
+    | PAGE_QUERYResult
+    | POST_QUERYResult
+    | CONTACT_QUERYResult
+    | {
+        // Minimal Category shape needed for metadata
+        title?: string | null;
+        seo?: { title?: string | null; metaDescription?: string | null } | null;
+      };
   slug: string;
-  type: "post" | "page";
+  type: "post" | "page" | "category";
 }) {
+  type WithMeta = {
+    meta?: {
+      title?: string | null;
+      description?: string | null;
+      image?: {
+        asset?: { metadata?: { dimensions?: { width?: number; height?: number } } };
+      } | null;
+      noindex?: boolean | null;
+    } | null;
+  };
+  type WithSeo = { seo?: { title?: string | null; metaDescription?: string | null } | null };
+
+  const hasMeta = (v: unknown): v is WithMeta =>
+    typeof v === "object" && v !== null && "meta" in (v as Record<string, unknown>);
+  const hasSeo = (v: unknown): v is WithSeo =>
+    typeof v === "object" && v !== null && "seo" in (v as Record<string, unknown>);
+
+  const isCategory = type === "category";
+  const title = isCategory
+    ? (hasSeo(page) && page.seo?.title) || (page as { title?: string | null })?.title
+    : hasMeta(page)
+      ? page.meta?.title
+      : undefined;
+  const description = isCategory
+    ? (hasSeo(page) && page.seo?.metaDescription) || undefined
+    : hasMeta(page)
+      ? page.meta?.description
+      : undefined;
+  const image = hasMeta(page) ? page.meta?.image : undefined;
+
   return {
-    title: page?.meta?.title,
-    description: page?.meta?.description,
+    title,
+    description,
     openGraph: {
       images: [
         {
-          url: page?.meta?.image
-            ? urlFor(page?.meta?.image).quality(100).url()
+          url: image
+            ? urlFor(image).quality(100).url()
             : getOgImageUrl({ type, slug }),
-          width: page?.meta?.image?.asset?.metadata?.dimensions?.width || 1200,
-          height: page?.meta?.image?.asset?.metadata?.dimensions?.height || 630,
+          width: image?.asset?.metadata?.dimensions?.width || 1200,
+          height: image?.asset?.metadata?.dimensions?.height || 630,
         },
       ],
       locale: "en_US",
@@ -34,7 +72,7 @@ export function generatePageMetadata({
     },
     robots: !isProduction
       ? "noindex, nofollow"
-      : page?.meta?.noindex
+      : hasMeta(page) && page.meta?.noindex
         ? "noindex"
         : "index, follow",
     alternates: {

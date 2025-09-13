@@ -1,5 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { BANNER_QUERY } from "@/sanity/queries/banner";
+import { CATEGORY_QUERY } from "@/sanity/queries/category";
 import { CHANGELOGS_QUERY } from "@/sanity/queries/changelog";
 import { CONTACT_QUERY } from "@/sanity/queries/contact";
 import { NAVIGATION_QUERY } from "@/sanity/queries/navigation";
@@ -24,6 +25,7 @@ import {
   CONTACT_QUERYResult,
   CHANGELOGS_QUERYResult,
   TEAM_QUERYResult,
+  Category,
 } from "@/sanity.types";
 
 export const fetchSanityNavigation =
@@ -146,11 +148,24 @@ export const fetchSanityContact = async (): Promise<CONTACT_QUERYResult> => {
   return data;
 };
 
+export const fetchSanityCategoryBySlug = async ({
+  slug,
+}: {
+  slug: string;
+}): Promise<Category | null> => {
+  const { data } = await sanityFetch({
+    query: CATEGORY_QUERY,
+    params: { slug },
+  });
+
+  return data as unknown as Category | null;
+};
+
 export const getOgImageUrl = ({
   type,
   slug,
 }: {
-  type: "post" | "page";
+  type: "post" | "page" | "category";
   slug: string;
 }): string => {
   // Clean the slug by removing any path segments before the last slash (e.g. "blog/my-post" becomes "my-post")
