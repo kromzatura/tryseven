@@ -4,13 +4,13 @@ import { Lightbulb } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Highlight, themes } from "prism-react-renderer";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CopyButton } from "@/components/ui/copy-button";
+import { createUniqueSlugger, slugify } from "@/lib/slugger";
 import { urlFor } from "@/sanity/lib/image";
-
-
+ 
 const getTextFromChildren = (children: ReactNode): string => {
   if (Array.isArray(children)) {
     return children
@@ -24,7 +24,11 @@ const getTextFromChildren = (children: ReactNode): string => {
   return "";
 };
 
-const portableTextComponents: PortableTextProps["components"] = {
+ 
+
+function createComponents(uniqueSlug?: (text: string) => string): PortableTextProps["components"] {
+  const toId = (text: string) => (uniqueSlug ? uniqueSlug(text) : slugify(text));
+  return {
   types: {
     image: ({ value }) => {
       const asset = value?.asset as
@@ -118,7 +122,7 @@ const portableTextComponents: PortableTextProps["components"] = {
     normal: ({ children }) => <p className="mb-4">{children}</p>,
     h1: ({ children }) => {
       const text = getTextFromChildren(children);
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const id = toId(text);
       return (
         <h1 id={id} className="my-4 font-semibold scroll-mt-20">
           {children}
@@ -127,7 +131,7 @@ const portableTextComponents: PortableTextProps["components"] = {
     },
     h2: ({ children }) => {
       const text = getTextFromChildren(children);
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const id = toId(text);
       return (
         <h2 id={id} className="my-4 font-semibold scroll-mt-20">
           {children}
@@ -136,7 +140,7 @@ const portableTextComponents: PortableTextProps["components"] = {
     },
     h3: ({ children }) => {
       const text = getTextFromChildren(children);
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const id = toId(text);
       return (
         <h3 id={id} className="my-4 font-semibold scroll-mt-20">
           {children}
@@ -145,7 +149,7 @@ const portableTextComponents: PortableTextProps["components"] = {
     },
     h4: ({ children }) => {
       const text = getTextFromChildren(children);
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const id = toId(text);
       return (
         <h4 id={id} className="my-4 font-semibold scroll-mt-20">
           {children}
@@ -154,7 +158,7 @@ const portableTextComponents: PortableTextProps["components"] = {
     },
     h5: ({ children }) => {
       const text = getTextFromChildren(children);
-      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const id = toId(text);
       return (
         <h5 id={id} className="my-4 font-semibold scroll-mt-20">
           {children}
@@ -193,14 +197,17 @@ const portableTextComponents: PortableTextProps["components"] = {
     bullet: ({ children }) => <li className="mb-2">{children}</li>,
     number: ({ children }) => <li className="mb-2">{children}</li>,
   },
-};
+  };
+}
 
 const PortableTextRenderer = ({
   value,
 }: {
   value: PortableTextProps["value"];
 }) => {
-  return <PortableText value={value} components={portableTextComponents} />;
+  const uniqueSlug = useMemo(() => createUniqueSlugger(), []);
+  const components = useMemo(() => createComponents(uniqueSlug), [uniqueSlug]);
+  return <PortableText value={value} components={components} />;
 };
 
 export default PortableTextRenderer;

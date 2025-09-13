@@ -5,6 +5,7 @@ import PortableTextRenderer from "@/components/portable-text-renderer";
 import PostDate from "@/components/post-date";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
+import { createUniqueSlugger } from "@/lib/slugger";
 import {
   fetchSanityPostBySlug,
   fetchSanityPostsStaticParams,
@@ -38,7 +39,7 @@ type TextBlock = Extract<
 
 function extractHeadings(blocks: BlockContent): Heading[] {
   if (!blocks) return [];
-
+  const unique = createUniqueSlugger();
   return blocks
     .filter((block): block is TextBlock => {
       return (
@@ -53,10 +54,11 @@ function extractHeadings(blocks: BlockContent): Heading[] {
         .map((child) => child.text || "")
         .filter(Boolean)
         .join(" ");
+      const id = unique(text || "");
       return {
         text: text || "",
         level: parseInt(block.style?.charAt(1) || "1"),
-        id: text?.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "",
+        id,
       };
     });
 }
