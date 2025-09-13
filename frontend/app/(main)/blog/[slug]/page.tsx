@@ -1,16 +1,17 @@
+import { Clock, Facebook, Twitter, Linkedin } from "lucide-react";
 import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/ui/breadcrumbs";
+
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import PostDate from "@/components/post-date";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import Breadcrumbs from "@/components/ui/breadcrumbs";
+import { Separator } from "@/components/ui/separator";
 import {
   fetchSanityPostBySlug,
   fetchSanityPostsStaticParams,
 } from "@/sanity/lib/fetch";
-import { generatePageMetadata } from "@/sanity/lib/metadata";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
-import { Separator } from "@/components/ui/separator";
-import { Clock, Facebook, Twitter, Linkedin } from "lucide-react";
+import { generatePageMetadata } from "@/sanity/lib/metadata";
 import { POST_QUERYResult } from "@/sanity.types";
 
 type BreadcrumbLink = {

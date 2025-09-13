@@ -1,12 +1,13 @@
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
-import PortableTextRenderer from "@/components/portable-text-renderer";
-import Icon from "@/components/icon";
 import { ArrowDown } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import Icon from "@/components/icon";
+import PortableTextRenderer from "@/components/portable-text-renderer";
+import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Hero174Props = Extract<

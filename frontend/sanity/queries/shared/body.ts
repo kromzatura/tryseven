@@ -1,5 +1,5 @@
-import { linkQuery } from "./link";
 import { imageQuery } from "./image";
+import { linkQuery } from "./link";
 
 export const bodyQuery = `
   ...,

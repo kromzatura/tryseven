@@ -1,9 +1,10 @@
 import { Mail, MapPin, MessagesSquare, Phone } from "lucide-react";
+import { notFound } from "next/navigation";
+
+import { submitContactForm } from "@/app/actions/contact-form";
 import { ContactForm } from "@/components/forms/contact-form";
 import { LinkButton } from "@/components/ui/link-button";
-import { submitContactForm } from "@/app/actions/contact-form";
 import { fetchSanityContact } from "@/sanity/lib/fetch";
-import { notFound } from "next/navigation";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 import { Link as LinkType } from "@/sanity.types";
 

@@ -1,13 +1,14 @@
+import { YouTubeEmbed } from "@next/third-parties/google";
 import { PortableText, PortableTextProps } from "@portabletext/react";
+import { Lightbulb } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { YouTubeEmbed } from "@next/third-parties/google";
 import { Highlight, themes } from "prism-react-renderer";
-import { CopyButton } from "@/components/ui/copy-button";
-import { Lightbulb } from "lucide-react";
 import { ReactNode } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { CopyButton } from "@/components/ui/copy-button";
+
 
 const getTextFromChildren = (children: ReactNode): string => {
   if (Array.isArray(children)) {

@@ -1,16 +1,16 @@
 import { sanityFetch } from "@/sanity/lib/live";
-import { NAVIGATION_QUERY } from "@/sanity/queries/navigation";
 import { BANNER_QUERY } from "@/sanity/queries/banner";
-import { PAGE_QUERY, PAGES_SLUGS_QUERY } from "@/sanity/queries/page";
-import { SETTINGS_QUERY } from "@/sanity/queries/settings";
+import { CHANGELOGS_QUERY } from "@/sanity/queries/changelog";
 import { CONTACT_QUERY } from "@/sanity/queries/contact";
+import { NAVIGATION_QUERY } from "@/sanity/queries/navigation";
+import { PAGE_QUERY, PAGES_SLUGS_QUERY } from "@/sanity/queries/page";
 import {
   POST_QUERY,
   POSTS_QUERY,
   POSTS_SLUGS_QUERY,
   POSTS_COUNT_QUERY,
 } from "@/sanity/queries/post";
-import { CHANGELOGS_QUERY } from "@/sanity/queries/changelog";
+import { SETTINGS_QUERY } from "@/sanity/queries/settings";
 import { TEAM_QUERY } from "@/sanity/queries/team";
 import {
   PAGE_QUERYResult,

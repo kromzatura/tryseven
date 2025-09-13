@@ -1,5 +1,6 @@
 import SectionContainer from "@/components/ui/section-container";
 import { PAGE_QUERYResult } from "@/sanity.types";
+
 import FeatureContent from "./feature-content";
 import FeatureImage from "./feature-image";
 

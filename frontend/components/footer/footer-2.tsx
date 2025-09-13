@@ -1,11 +1,12 @@
-import { fetchSanitySettings } from "@/sanity/lib/fetch";
-import { getNavigationItems } from "@/lib/getNavigationItems";
-import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import { buttonVariants } from "@/components/ui/button";
+import { getNavigationItems } from "@/lib/getNavigationItems";
+import { cn } from "@/lib/utils";
+import { fetchSanitySettings } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
 
 interface Footer2Props {
   className?: string;

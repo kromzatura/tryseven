@@ -1,13 +1,13 @@
 "use client";
 
 import { ArrowUpRight, Plus } from "lucide-react";
-import { useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
+import { useState } from "react";
+
 import { Badge } from "@/components/ui/badge";
 import SectionContainer from "@/components/ui/section-container";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Gallery1Props = Extract<

@@ -1,11 +1,12 @@
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/ui/section-container";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
+
 import Icon from "@/components/icon";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
 import { fetchSanityTeam } from "@/sanity/lib/fetch";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Team3Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

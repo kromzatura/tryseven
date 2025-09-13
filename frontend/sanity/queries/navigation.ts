@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+
 import { linkQuery } from "./shared/link";
 
 export const NAVIGATION_QUERY = groq`

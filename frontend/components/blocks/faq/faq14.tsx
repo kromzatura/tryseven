@@ -1,7 +1,6 @@
-import { cn } from "@/lib/utils";
 import { SVGProps, useId } from "react";
 
-import SectionContainer from "@/components/ui/section-container";
+import PortableTextRenderer from "@/components/portable-text-renderer";
 import {
   Accordion,
   AccordionContent,
@@ -9,7 +8,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import PortableTextRenderer from "@/components/portable-text-renderer";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 interface PlusSignsProps extends SVGProps<SVGSVGElement> {

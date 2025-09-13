@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/ui/section-container";
-import Link from "next/link";
 import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
+
 import { buttonVariants } from "@/components/ui/button";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Compare5Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

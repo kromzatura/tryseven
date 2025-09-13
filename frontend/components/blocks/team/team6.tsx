@@ -1,12 +1,13 @@
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { fetchSanityTeam } from "@/sanity/lib/fetch";
-import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
+
 import Icon from "@/components/icon";
 import { buttonVariants } from "@/components/ui/button";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
+import { fetchSanityTeam } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Team6Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

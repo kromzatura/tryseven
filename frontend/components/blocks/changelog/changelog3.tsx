@@ -1,14 +1,15 @@
-import { Fragment } from "react";
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/ui/section-container";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { fetchSanityChangelogs } from "@/sanity/lib/fetch";
+import { Fragment } from "react";
+
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import PostDate from "@/components/post-date";
+import SectionContainer from "@/components/ui/section-container";
 import { Separator } from "@/components/ui/separator";
 import { ColorName, getColor } from "@/lib/color";
+import { cn } from "@/lib/utils";
+import { fetchSanityChangelogs } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Changelogs3Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

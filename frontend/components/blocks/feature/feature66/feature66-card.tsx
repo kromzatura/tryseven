@@ -1,6 +1,7 @@
-import { urlFor } from "@/sanity/lib/image";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];

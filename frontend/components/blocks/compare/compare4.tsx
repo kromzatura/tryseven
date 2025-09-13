@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { Fragment } from "react";
+
 import Icon from "@/components/icon";
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import { buttonVariants } from "@/components/ui/button";
 import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Compare4Props = Extract<

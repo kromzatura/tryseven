@@ -1,12 +1,13 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import PostDate from "@/components/post-date";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import SectionContainer from "@/components/ui/section-container";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
-import Link from "next/link";
 import { PAGE_QUERYResult } from "@/sanity.types";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Blog4 = Extract<Block, { _type: "blog-4" }>;

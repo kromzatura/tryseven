@@ -1,9 +1,10 @@
+import { notFound } from "next/navigation";
+
 import Blocks from "@/components/blocks";
 import {
   fetchSanityPageBySlug,
   fetchSanityPagesStaticParams,
 } from "@/sanity/lib/fetch";
-import { notFound } from "next/navigation";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 
 export async function generateStaticParams() {

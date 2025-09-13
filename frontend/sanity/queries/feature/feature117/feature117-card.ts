@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
-import { linkQuery } from "../../shared/link";
+
 import { imageQuery } from "../../shared/image";
+import { linkQuery } from "../../shared/link";
 
 // @sanity-typegen-ignore
 export const feature117CardQuery = groq`

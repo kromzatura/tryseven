@@ -1,5 +1,5 @@
-import SectionContainer from "@/components/ui/section-container";
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import SectionContainer from "@/components/ui/section-container";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type FAQProps = Extract<

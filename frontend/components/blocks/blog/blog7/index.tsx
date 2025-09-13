@@ -1,15 +1,16 @@
-import SectionContainer from "@/components/ui/section-container";
-import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import Image from "next/image";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];

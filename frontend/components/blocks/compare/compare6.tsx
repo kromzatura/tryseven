@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { CircleCheck, CircleMinus, CircleX } from "lucide-react";
 import { useState } from "react";
 
+import SectionContainer from "@/components/ui/section-container";
 import {
   Table,
   TableBody,
@@ -13,7 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Compare6Props = Extract<

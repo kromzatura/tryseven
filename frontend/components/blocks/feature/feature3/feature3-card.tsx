@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+import Icon from "@/components/icon";
 import {
   Card,
   CardContent,
@@ -5,9 +8,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
-import Icon from "@/components/icon";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Feature3 = Extract<Block, { _type: "feature-3" }>;

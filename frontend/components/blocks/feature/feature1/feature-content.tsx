@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { createElement } from "react";
+
+import Icon from "@/components/icon";
 import PortableTextRenderer from "@/components/portable-text-renderer";
 import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import Tag from "@/components/ui/tag";
-import Icon from "@/components/icon";
-import { createElement } from "react";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];

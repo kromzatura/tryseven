@@ -1,13 +1,14 @@
-import SectionContainer from "@/components/ui/section-container";
-import { Badge } from "@/components/ui/badge";
 import { Calendar, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
 import Link from "next/link";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
+
 import Pagination from "@/components/pagination";
+import PostDate from "@/components/post-date";
+import { Badge } from "@/components/ui/badge";
+import SectionContainer from "@/components/ui/section-container";
+import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type AllPosts14Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

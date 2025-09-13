@@ -1,11 +1,13 @@
-import { cn } from "@/lib/utils";
+import { CheckCircle2, CircleMinus } from "lucide-react";
+import Image from "next/image";
 import { Fragment } from "react";
+
 import SectionContainer from "@/components/ui/section-container";
 import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
-import { CheckCircle2, CircleMinus } from "lucide-react";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
 
 type Compare2Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

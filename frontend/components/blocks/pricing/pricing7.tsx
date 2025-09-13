@@ -1,17 +1,18 @@
 "use client";
 
+import { Check } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
-import { cn } from "@/lib/utils";
+import Icon from "@/components/icon";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
-import Link from "next/link";
-import Icon from "@/components/icon";
-import { buttonVariants } from "@/components/ui/button";
-import { Check } from "lucide-react";
+
 
 type Pricing7Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

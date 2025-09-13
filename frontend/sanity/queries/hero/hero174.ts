@@ -1,7 +1,8 @@
 import { groq } from "next-sanity";
-import { linkQuery } from "../shared/link";
-import { imageQuery } from "../shared/image";
+
 import { bodyQuery } from "../shared/body";
+import { imageQuery } from "../shared/image";
+import { linkQuery } from "../shared/link";
 
 // @sanity-typegen-ignore
 export const hero174Query = groq`

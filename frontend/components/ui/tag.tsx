@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/icon";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export default function Tag({
   title,

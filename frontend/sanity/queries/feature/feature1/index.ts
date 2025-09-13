@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+
 import { featureContentQuery } from "./feature-content";
 import { featureImageQuery } from "./feature-image";
 

@@ -1,20 +1,20 @@
 "use client";
 
 import AutoScroll from "embla-carousel-auto-scroll";
-
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import PortableTextRenderer from "@/components/portable-text-renderer";
+
 import Icon from "@/components/icon";
+import PortableTextRenderer from "@/components/portable-text-renderer";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Hero85Props = Extract<

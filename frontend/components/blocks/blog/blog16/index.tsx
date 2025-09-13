@@ -1,13 +1,14 @@
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { Fragment } from "react";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { ArrowRight, ChevronRight } from "lucide-react";
-import PostDate from "@/components/post-date";
 import Link from "next/link";
+import { Fragment } from "react";
+
+import PostDate from "@/components/post-date";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants } from "@/components/ui/button";
+import SectionContainer from "@/components/ui/section-container";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Blog16 = Extract<Block, { _type: "blog-16" }>;

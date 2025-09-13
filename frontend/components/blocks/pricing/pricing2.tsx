@@ -1,8 +1,11 @@
 "use client";
 
+import { CircleCheck } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
-import { cn } from "@/lib/utils";
+import Icon from "@/components/icon";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -11,13 +14,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import Link from "next/link";
-import Icon from "@/components/icon";
-import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
-import { CircleCheck } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
 
 type Pricing2Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

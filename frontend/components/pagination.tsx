@@ -1,6 +1,7 @@
-import { buttonVariants } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+
+import { buttonVariants } from "@/components/ui/button";
 
 interface PaginationProps {
   currentPage: number;

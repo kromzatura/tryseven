@@ -1,11 +1,12 @@
-import Navbar1 from "@/components/header/navbar-1";
-import Footer2 from "@/components/footer/footer-2";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity";
+
 import Banner from "@/components/blocks/banner";
 import Banner5 from "@/components/blocks/banner/banner5";
-import { fetchSanityBanner } from "@/sanity/lib/fetch";
 import { DisableDraftMode } from "@/components/disable-draft-mode";
-import { VisualEditing } from "next-sanity";
-import { draftMode } from "next/headers";
+import Footer2 from "@/components/footer/footer-2";
+import Navbar1 from "@/components/header/navbar-1";
+import { fetchSanityBanner } from "@/sanity/lib/fetch";
 import { SanityLive } from "@/sanity/lib/live";
 
 export default async function MainLayout({

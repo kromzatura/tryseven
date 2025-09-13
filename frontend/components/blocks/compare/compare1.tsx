@@ -1,10 +1,12 @@
-import { cn } from "@/lib/utils";
-import { Fragment } from "react";
-import SectionContainer from "@/components/ui/section-container";
-import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { urlFor } from "@/sanity/lib/image";
 import { CheckCircle2, OctagonX } from "lucide-react";
+import Image from "next/image";
+import { Fragment } from "react";
+
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
 
 type Compare1Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

@@ -1,17 +1,18 @@
 "use client";
 
+import { CheckCircle2, Zap } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
-import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import SectionContainer from "@/components/ui/section-container";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import Link from "next/link";
 import Tag from "@/components/ui/tag";
-import { buttonVariants } from "@/components/ui/button";
-import { CheckCircle2, Zap } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
 
 type Pricing16Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

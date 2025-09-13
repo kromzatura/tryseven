@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import Icon from "@/components/icon";
 import {
   Carousel,
   CarouselContent,
@@ -10,11 +12,8 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-
-import Icon from "@/components/icon";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import SectionContainer from "@/components/ui/section-container";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Gallery9Props = Extract<

@@ -1,10 +1,11 @@
-import SectionContainer from "@/components/ui/section-container";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { fetchSanityChangelogs } from "@/sanity/lib/fetch";
+
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import PostDate from "@/components/post-date";
+import SectionContainer from "@/components/ui/section-container";
+import { fetchSanityChangelogs } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Changelogs2Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

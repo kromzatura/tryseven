@@ -1,7 +1,7 @@
 import SectionContainer from "@/components/ui/section-container";
-
-import { PAGE_QUERYResult } from "@/sanity.types";
 import { fetchSanityChangelogs } from "@/sanity/lib/fetch";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
 import Changelog5 from "./changelog5";
 type Changelogs5Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

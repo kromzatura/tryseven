@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+
 import { bodyQuery } from "../shared/body";
 
 // @sanity-typegen-ignore

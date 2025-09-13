@@ -1,22 +1,21 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
-
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import { ColorName, getColor } from "@/lib/color";
 import SectionContainer from "@/components/ui/section-container";
+import { ColorName, getColor } from "@/lib/color";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Gallery10Props = Extract<

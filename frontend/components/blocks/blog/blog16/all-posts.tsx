@@ -1,15 +1,16 @@
+import { ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { Fragment } from "react";
-import { cn } from "@/lib/utils";
+
+import Pagination from "@/components/pagination";
+import PostDate from "@/components/post-date";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
 import SectionContainer from "@/components/ui/section-container";
-import { ArrowRight, ChevronRight } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import PostDate from "@/components/post-date";
-import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { cn } from "@/lib/utils";
 import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
-import Pagination from "@/components/pagination";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type AllPosts16Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

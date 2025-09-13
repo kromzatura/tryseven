@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import Icon from "@/components/icon";
 
+import Icon from "@/components/icon";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   type CarouselApi,
@@ -14,6 +12,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Progress } from "@/components/ui/progress";
+import SectionContainer from "@/components/ui/section-container";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Feature12 = Extract<Block, { _type: "feature-12" }>;

@@ -1,3 +1,6 @@
+import { Home } from "lucide-react";
+import Link from "next/link";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,8 +9,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Link from "next/link";
-import { Home } from "lucide-react";
 
 type BreadcrumbLinkType = {
   label: string;

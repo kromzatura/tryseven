@@ -1,17 +1,18 @@
-import SectionContainer from "@/components/ui/section-container";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import Pagination from "@/components/pagination";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import SectionContainer from "@/components/ui/section-container";
 import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
-import Pagination from "@/components/pagination";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type AllPosts7Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

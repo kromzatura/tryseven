@@ -1,18 +1,18 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
-import { PAGE_QUERYResult, CHANGELOGS_QUERYResult } from "@/sanity.types";
 import PortableTextRenderer from "@/components/portable-text-renderer";
+import PostDate from "@/components/post-date";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { buttonVariants } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult, CHANGELOGS_QUERYResult } from "@/sanity.types";
 
 type Changelogs5Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

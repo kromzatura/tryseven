@@ -1,12 +1,14 @@
+import { Calendar, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import PostDate from "@/components/post-date";
+import { Badge } from "@/components/ui/badge";
 import SectionContainer from "@/components/ui/section-container";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
-import Link from "next/link";
 import { PAGE_QUERYResult } from "@/sanity.types";
-import { Calendar, ChevronRight } from "lucide-react";
+
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Blog14 = Extract<Block, { _type: "blog-14" }>;
 

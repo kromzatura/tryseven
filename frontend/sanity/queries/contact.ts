@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+
 import { linkQuery } from "./shared/link";
 import { metaQuery } from "./shared/meta";
 

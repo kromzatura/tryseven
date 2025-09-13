@@ -1,12 +1,12 @@
+import { Circle } from "lucide-react";
+import Link from "next/link";
 import { Fragment } from "react";
-import { cn } from "@/lib/utils";
+
+import Icon from "@/components/icon";
+import { buttonVariants } from "@/components/ui/button";
 import SectionContainer from "@/components/ui/section-container";
 import Tag from "@/components/ui/tag";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
-import { Circle } from "lucide-react";
-import Icon from "@/components/icon";
-
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type SectionHeaderProps = Extract<

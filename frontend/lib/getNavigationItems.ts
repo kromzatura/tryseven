@@ -1,5 +1,6 @@
-import slugify from "./slugify";
 import { fetchSanityNavigation } from "@/sanity/lib/fetch";
+
+import slugify from "./slugify";
 
 export const getNavigationItems = async (title: string) => {
   const navigation = await fetchSanityNavigation();

@@ -1,10 +1,11 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+import { useDraftModeEnvironment } from "next-sanity/hooks";
+
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
 
-import { useDraftModeEnvironment } from "next-sanity/hooks";
 
 export function DisableDraftMode() {
   const environment = useDraftModeEnvironment();

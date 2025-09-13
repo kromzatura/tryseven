@@ -1,5 +1,6 @@
 import SectionContainer from "@/components/ui/section-container";
 import { PAGE_QUERYResult } from "@/sanity.types";
+
 import Feature117Card from "./feature117-card";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];

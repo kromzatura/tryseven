@@ -1,12 +1,13 @@
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { Calendar, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
 import Link from "next/link";
+
+import PostDate from "@/components/post-date";
+import { Badge } from "@/components/ui/badge";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
 type Blog13 = Extract<Block, { _type: "blog-13" }>;

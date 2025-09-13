@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
-import Icon from "@/components/icon";
-import SectionContainer from "@/components/ui/section-container";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
+
+import Icon from "@/components/icon";
 import { buttonVariants } from "@/components/ui/button";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Logos2Props = Extract<

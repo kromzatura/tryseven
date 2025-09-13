@@ -1,13 +1,14 @@
-import SectionContainer from "@/components/ui/section-container";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
-import PostDate from "@/components/post-date";
 import Link from "next/link";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
+
 import Pagination from "@/components/pagination";
+import PostDate from "@/components/post-date";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import SectionContainer from "@/components/ui/section-container";
+import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type AllPosts4Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

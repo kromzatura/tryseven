@@ -1,4 +1,8 @@
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+
+import Icon from "@/components/icon";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -6,15 +10,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import { fetchSanityTeam } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
-import Link from "next/link";
-import Icon from "@/components/icon";
-import { buttonVariants } from "@/components/ui/button";
+import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Team8Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

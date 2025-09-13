@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils";
 import Icon from "@/components/icon";
 import SectionContainer from "@/components/ui/section-container";
 import { ColorName, getColor } from "@/lib/color";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Timeline6Props = Extract<

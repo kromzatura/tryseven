@@ -1,7 +1,8 @@
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+import { buttonVariants } from "@/components/ui/button";
 import { TextRoll } from "@/components/ui/text-roll";
+import { cn } from "@/lib/utils";
 
 export default function Custom404() {
   return (

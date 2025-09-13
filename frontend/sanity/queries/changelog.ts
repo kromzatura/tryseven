@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
-import { imageQuery } from "./shared/image";
+
 import { bodyQuery } from "./shared/body";
+import { imageQuery } from "./shared/image";
 
 export const CHANGELOGS_QUERY = groq`*[_type == "changelog" && defined(slug)] | order(date desc){
     _id,

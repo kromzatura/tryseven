@@ -1,9 +1,10 @@
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import PortableTextRenderer from "@/components/portable-text-renderer";
+
 import Icon from "@/components/icon";
+import PortableTextRenderer from "@/components/portable-text-renderer";
 import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Hero13Props = Extract<

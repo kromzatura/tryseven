@@ -1,4 +1,5 @@
 import { groq } from "next-sanity";
+
 import { feature66CardQuery } from "./feature66-card";
 
 // @sanity-typegen-ignore

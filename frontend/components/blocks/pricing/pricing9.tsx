@@ -1,9 +1,12 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { CheckIcon, Info, MinusIcon } from "lucide-react";
+import Link from "next/link";
+import { Fragment, useState } from "react";
+
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SectionContainer from "@/components/ui/section-container";
 import { Switch } from "@/components/ui/switch";
 import {
   Tooltip,
@@ -11,10 +14,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { CheckIcon, Info, MinusIcon } from "lucide-react";
-import { Fragment, useState } from "react";
+import { cn } from "@/lib/utils";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
+
+
 
 type Pricing9Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],

@@ -1,15 +1,16 @@
 "use client";
 
 import AutoScroll from "embla-carousel-auto-scroll";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { Separator } from "@/components/ui/separator";
 import SectionContainer from "@/components/ui/section-container";
-import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 

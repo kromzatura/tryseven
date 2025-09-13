@@ -1,9 +1,10 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+
 import Icon from "@/components/icon";
 import SectionContainer from "@/components/ui/section-container";
 import Tag from "@/components/ui/tag";
+import { cn } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 import { PAGE_QUERYResult } from "@/sanity.types";
 
 type Timeline4Props = Extract<

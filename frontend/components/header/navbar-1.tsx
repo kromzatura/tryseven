@@ -1,18 +1,9 @@
-import { getNavigationItems } from "@/lib/getNavigationItems";
-import { fetchSanitySettings } from "@/sanity/lib/fetch";
-import { urlFor } from "@/sanity/lib/image";
+import { DialogClose } from "@radix-ui/react-dialog";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { LinkButton } from "@/components/ui/link-button";
-import Icon from "@/components/icon";
-import type {
-  Link as SanityLink,
-  LinkGroup as SanityLinkGroup,
-  LinkIcon as SanityLinkIcon,
-} from "@/sanity.types";
-import { cn } from "@/lib/utils";
-import { DialogClose } from "@radix-ui/react-dialog";
 
+import Icon from "@/components/icon";
 import {
   Accordion,
   AccordionContent,
@@ -20,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button, buttonVariants } from "@/components/ui/button";
+import { LinkButton } from "@/components/ui/link-button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,7 +27,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { getNavigationItems } from "@/lib/getNavigationItems";
+import { cn } from "@/lib/utils";
+import { fetchSanitySettings } from "@/sanity/lib/fetch";
+import { urlFor } from "@/sanity/lib/image";
+import type {
+  Link as SanityLink,
+  LinkGroup as SanityLinkGroup,
+  LinkIcon as SanityLinkIcon,
+} from "@/sanity.types";
+
 
 type NavigationItem = (SanityLink | SanityLinkGroup | SanityLinkIcon) & {
   _key: string;

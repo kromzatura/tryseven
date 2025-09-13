@@ -1,9 +1,13 @@
-import { cn } from "@/lib/utils";
-import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import Link from "next/link";
+
+import { buttonVariants } from "@/components/ui/button";
+import SectionContainer from "@/components/ui/section-container";
+import { cn } from "@/lib/utils";
+import { PAGE_QUERYResult } from "@/sanity.types";
+
+
+
 
 type Pricing1Props = Extract<
   NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
